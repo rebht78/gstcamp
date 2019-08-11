@@ -5,8 +5,10 @@
  */
 package com.gstcamp.controller;
 
+import com.gstcamp.service.HomeService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +21,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("home.gst")
 public class HomeController {
+    
+    @Autowired
+    HomeService homeService;
     
     @RequestMapping(method = RequestMethod.POST, params = "action=showHome")
     public String getLoginPage(HttpServletRequest request, HttpServletResponse response)
@@ -44,7 +49,8 @@ public class HomeController {
     public ModelAndView editClient(HttpServletRequest request, HttpServletResponse response)
     {
         ModelAndView modelAndView = new ModelAndView("home/ClientView");
-        modelAndView.addObject("process", "edit");
+        modelAndView.addObject("process", "Edit");
+        modelAndView.addObject("gstlist", homeService.getGSTList());
         return modelAndView;
     }
     
@@ -52,7 +58,8 @@ public class HomeController {
     public ModelAndView deleteClient(HttpServletRequest request, HttpServletResponse response)
     {
         ModelAndView modelAndView = new ModelAndView("home/ClientView");
-        modelAndView.addObject("process", "delete");
+        modelAndView.addObject("process", "Delete");
+        modelAndView.addObject("gstlist", homeService.getGSTList());
         return modelAndView;
     }
     
