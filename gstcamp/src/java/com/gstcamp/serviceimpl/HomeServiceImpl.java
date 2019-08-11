@@ -26,4 +26,11 @@ public class HomeServiceImpl implements HomeService {
         return homeRepository.getGSTList();
     }
 
+    @Override
+    public List showClient() {
+        return homeRepository.showClient();
+    }
+    
+    
+
 }

@@ -44,3 +44,8 @@ function DeleteClientLoader()
 {
     ajaxCall('home.gst?action=deleteClient','','GET','clientview');
 }
+function ShowClients()
+{
+    ajaxCall('home.gst?action=displayClient','','GET','viewbox');
+    return false;
+}

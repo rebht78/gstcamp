@@ -13,4 +13,5 @@ import java.util.List;
  */
 public interface HomeRepository {
     List getGSTList();
+    List showClient();
 }

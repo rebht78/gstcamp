@@ -14,4 +14,6 @@ import java.util.List;
 public interface HomeService {
  
     List getGSTList();
+    
+    List showClient();
 }

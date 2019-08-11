@@ -13,7 +13,7 @@
                 <div class="panel-title">Add Client</div>
             </div>  
             <div class="panel-body" >
-                <form method="post" action=".">
+                <form method="post">
                     <div id="div_id_gstno" class="form-group required">
                         <label for="id_gstno" class="control-label col-md-4  requiredField">GST No<span class="asteriskField">*</span> </label>
                         <div class="controls col-md-8 ">
@@ -64,7 +64,7 @@
                 <div class="panel-title">${process} Client</div>
             </div>  
             <div class="panel-body" >
-                <form method="post" action=".">
+                <form method="post">
                     <div id="div_id_gstno" class="form-group required">
                         <label for="id_username" class="control-label col-md-4  requiredField">GST No<span class="asteriskField">*</span> </label>
                         <div class="controls col-md-8 ">
@@ -81,12 +81,40 @@
                     <div class="form-group"> 
                         <div class="aab controls col-md-4 "></div>
                         <div class="controls col-md-8 ">
-                            <input type="submit" name="submitclient" value="Search Client" class="btn btn-primary btn btn-info" id="submit-id-client" />
+                            <input type="submit" name="submitclient" value="Search Client" 
+                                   class="btn btn-primary btn btn-info" id="submit-id-client"
+                                   onclick="return ShowClients()"/>
                             <input type="reset" name="resetclient" value="Reset" class="btn btn-danger btn btn-info" id="reset-id-client" />
                         </div>
                     </div> 
                 </form>
             </div>
         </div>
+    </div>
+</c:if>
+<c:if test="${process eq 'displayclient' or process eq 'View'}">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>GST No.</th>
+                    <th>Client Name</th>
+                    <th>Address</th>
+                    <th>State</th>
+                    <th>Contact No.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="client" items="${clientlist}">
+                    <tr>
+                        <td>${client.gstno}</td>
+                        <td>${client.clientname}</td>
+                        <td>${client.address}</td>
+                        <td>${client.state}</td>
+                        <td>${client.contactno}</td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
     </div>
 </c:if>

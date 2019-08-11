@@ -21,53 +21,57 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("home.gst")
 public class HomeController {
-    
+
     @Autowired
     HomeService homeService;
-    
+
     @RequestMapping(method = RequestMethod.POST, params = "action=showHome")
-    public String getLoginPage(HttpServletRequest request, HttpServletResponse response)
-    {
+    public String getLoginPage(HttpServletRequest request, HttpServletResponse response) {
         return "home/Main";
     }
+
     @RequestMapping(method = RequestMethod.GET, params = "action=showClient")
-    public ModelAndView getClientPage(HttpServletRequest request, HttpServletResponse response)
-    {
+    public ModelAndView getClientPage(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView("home/Client");
         return modelAndView;
     }
-    
+
     @RequestMapping(method = RequestMethod.GET, params = "action=addClient")
-    public ModelAndView addClient(HttpServletRequest request, HttpServletResponse response)
-    {
+    public ModelAndView addClient(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView("home/ClientView");
         modelAndView.addObject("process", "add");
         return modelAndView;
     }
-    
+
     @RequestMapping(method = RequestMethod.GET, params = "action=editClient")
-    public ModelAndView editClient(HttpServletRequest request, HttpServletResponse response)
-    {
+    public ModelAndView editClient(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView("home/ClientView");
         modelAndView.addObject("process", "Edit");
         modelAndView.addObject("gstlist", homeService.getGSTList());
         return modelAndView;
     }
-    
+
     @RequestMapping(method = RequestMethod.GET, params = "action=deleteClient")
-    public ModelAndView deleteClient(HttpServletRequest request, HttpServletResponse response)
-    {
+    public ModelAndView deleteClient(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView("home/ClientView");
         modelAndView.addObject("process", "Delete");
         modelAndView.addObject("gstlist", homeService.getGSTList());
         return modelAndView;
     }
-    
+
     @RequestMapping(method = RequestMethod.GET, params = "action=viewClient")
-    public ModelAndView viewClient(HttpServletRequest request, HttpServletResponse response)
-    {
+    public ModelAndView viewClient(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView("home/ClientView");
-        modelAndView.addObject("process", "view");
+        modelAndView.addObject("process", "View");
+        modelAndView.addObject("clientlist", homeService.showClient());
+        return modelAndView;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, params = "action=displayClient")
+    public ModelAndView showClient(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView modelAndView = new ModelAndView("home/ClientView");
+        modelAndView.addObject("process", "displayclient");
+        modelAndView.addObject("clientlist", homeService.showClient());
         return modelAndView;
     }
 }

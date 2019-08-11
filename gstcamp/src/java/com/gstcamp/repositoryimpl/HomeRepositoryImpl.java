@@ -5,6 +5,7 @@
  */
 package com.gstcamp.repositoryimpl;
 
+import com.gstcamp.bean.ClientBean;
 import com.gstcamp.repository.HomeRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,5 +29,16 @@ public class HomeRepositoryImpl implements HomeRepository {
         
         return arrayList;
     }
-    
+
+    @Override
+    public List showClient() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new ClientBean("12345", "Parag Sarees", "Citylight", "Gujarat", "111111"));
+        arrayList.add(new ClientBean("12346", "D. Light Textile", "Citylight", "Gujarat", "1111897"));
+        
+        arrayList.add(new ClientBean("12347", "Textile Corp", "Parle Point", "Gujarat", "111113"));
+        arrayList.add(new ClientBean("12348", "Mahendra Sarees", "Citylight", "Gujarat", "111145"));
+        
+        return arrayList;
+    }
 }
