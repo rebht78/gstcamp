@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" onclick="ProductLoader()">
                             <span class="glyphicon glyphicon-shopping-cart"></span>
                             Product Management
                         </a>

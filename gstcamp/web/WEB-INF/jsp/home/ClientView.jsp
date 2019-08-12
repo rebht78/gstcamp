@@ -21,9 +21,9 @@
                         </div>
                     </div>
                     <div id="div_id_clientname" class="form-group required">
-                        <label for="id_email" class="control-label col-md-4  requiredField">Client Name<span class="asteriskField">*</span> </label>
+                        <label for="id_clientname" class="control-label col-md-4  requiredField">Client Name<span class="asteriskField">*</span> </label>
                         <div class="controls col-md-8 ">
-                            <input class="input-md textinput form-control" id="id_clientname" name="clientname" placeholder="Enter Name of the Client" style="margin-bottom: 10px" type="email" />
+                            <input class="input-md textinput form-control" id="id_clientname" name="clientname" placeholder="Enter Name of the Client" style="margin-bottom: 10px" type="text" />
                         </div>     
                     </div>
                     <div id="div_id_number" class="form-group required">

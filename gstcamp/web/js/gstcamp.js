@@ -49,3 +49,7 @@ function ShowClients()
     ajaxCall('home.gst?action=displayClient','','GET','viewbox');
     return false;
 }
+function ProductLoader()
+{
+    ajaxCall('home.gst?action=showProduct','','GET','load');
+}
