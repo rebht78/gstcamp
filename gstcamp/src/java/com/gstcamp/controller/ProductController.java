@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author aziz
  */
 @Controller
+@RequestMapping("product.gst")
 public class ProductController {
     
     @RequestMapping(method = RequestMethod.GET, params = "action=addProduct")

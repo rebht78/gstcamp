@@ -53,3 +53,7 @@ function ProductLoader()
 {
     ajaxCall('home.gst?action=showProduct','','GET','load');
 }
+function AddProductLoader()
+{
+    ajaxCall('product.gst?action=addProduct','','GET','productview');
+}
