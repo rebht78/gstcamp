@@ -93,28 +93,38 @@
     </div>
 </c:if>
 <c:if test="${process eq 'displayclient' or process eq 'View'}">
-    <div class="table-responsive">
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>GST No.</th>
-                    <th>Client Name</th>
-                    <th>Address</th>
-                    <th>State</th>
-                    <th>Contact No.</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="client" items="${clientlist}">
-                    <tr>
-                        <td>${client.gstno}</td>
-                        <td>${client.clientname}</td>
-                        <td>${client.address}</td>
-                        <td>${client.state}</td>
-                        <td>${client.contactno}</td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
+    <div id="clientbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">View Client</div>
+            </div>  
+            <div class="panel-body" >
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>GST No.</th>
+                                <th>Client Name</th>
+                                <th>Address</th>
+                                <th>State</th>
+                                <th>Contact No.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="client" items="${clientlist}">
+                                <tr>
+                                    <td>${client.gstno}</td>
+                                    <td>${client.clientname}</td>
+                                    <td>${client.address}</td>
+                                    <td>${client.state}</td>
+                                    <td>${client.contactno}</td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </c:if>
