@@ -57,3 +57,11 @@ function AddProductLoader()
 {
     ajaxCall('product.gst?action=addProduct','','GET','productview');
 }
+function EditProductLoader()
+{
+    ajaxCall('product.gst?action=editProduct','','GET','productview');
+}
+function DeleteProductLoader()
+{
+    ajaxCall('product.gst?action=deleteProduct','','GET','productview');
+}

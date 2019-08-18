@@ -21,28 +21,28 @@ import org.springframework.web.servlet.ModelAndView;
 public class ProductController {
     
     @RequestMapping(method = RequestMethod.GET, params = "action=addProduct")
-    public ModelAndView addClient(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView addProduct(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView("product/ProductView");
         modelAndView.addObject("process", "add");
         return modelAndView;
     }
 
     @RequestMapping(method = RequestMethod.GET, params = "action=editProduct")
-    public ModelAndView editClient(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView editProduct(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView("product/ProductView");
         modelAndView.addObject("process", "Edit");
         return modelAndView;
     }
 
-    @RequestMapping(method = RequestMethod.GET, params = "action=deleteProdut")
-    public ModelAndView deleteClient(HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping(method = RequestMethod.GET, params = "action=deleteProduct")
+    public ModelAndView deleteProduct(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView("product/ProductView");
         modelAndView.addObject("process", "Delete");
         return modelAndView;
     }
 
     @RequestMapping(method = RequestMethod.GET, params = "action=viewProduct")
-    public ModelAndView viewClient(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView viewProduct(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView("product/ProductView");
         modelAndView.addObject("process", "View");
         return modelAndView;
