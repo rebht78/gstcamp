@@ -45,11 +45,17 @@
                             Product Management
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <span class="glyphicon glyphicon-file"></span>
-                            Invoice Management
-                        </a>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle"  class="glyphicon glyphicon-file" data-toggle="dropdown" href="#">Invoice Management
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="PurchaseLoader()">
+                                    <span class="glyphicon glyphicon-arrow-left"></span>
+                                    Purchase</a></li>
+                            <li><a href="#">
+                                    <span class="glyphicon glyphicon-arrow-right"></span>
+                                    Sale</a></li>
+                        </ul>
                     </li>
                     <li>
                         <a href="#">

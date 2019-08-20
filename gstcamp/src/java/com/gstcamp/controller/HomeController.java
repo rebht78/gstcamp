@@ -74,9 +74,16 @@ public class HomeController {
         modelAndView.addObject("clientlist", homeService.showClient());
         return modelAndView;
     }
-     @RequestMapping(method = RequestMethod.GET, params = "action=showProduct")
+
+    @RequestMapping(method = RequestMethod.GET, params = "action=showProduct")
     public ModelAndView getProductPage(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView("home/Product");
+        return modelAndView;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, params = "action=showPurchase")
+    public ModelAndView getPurchasePage(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView modelAndView = new ModelAndView("home/Purchase");
         return modelAndView;
     }
 }
