@@ -69,3 +69,14 @@ function PurchaseLoader()
 {
     ajaxCall('home.gst?action=showPurchase', '', 'GET', 'load');
 }
+function AddPurchaseLoader()
+{
+    ajaxCall('invoice.gst?action=addPurchase', '', 'GET', 'purchaseview');
+    showDatePicker('id_purchasedate');
+}
+function showDatePicker(elementid)
+{
+    $('#'+elementid).on('load', function() {
+        this.datepicker();
+    });
+}

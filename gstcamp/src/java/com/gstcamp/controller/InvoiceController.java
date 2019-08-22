@@ -5,8 +5,12 @@
  */
 package com.gstcamp.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -16,5 +20,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("invoice.gst")
 public class InvoiceController {
-    
+    @RequestMapping(method = RequestMethod.GET, params = "action=addPurchase")
+    public ModelAndView addProduct(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView modelAndView = new ModelAndView("invoice/PurchaseView");
+        modelAndView.addObject("process", "add");
+        return modelAndView;
+    }
 }
