@@ -72,11 +72,18 @@ function PurchaseLoader()
 function AddPurchaseLoader()
 {
     ajaxCall('invoice.gst?action=addPurchase', '', 'GET', 'purchaseview');
-    showDatePicker('id_purchasedate');
 }
-function showDatePicker(elementid)
+function checkLogin()
 {
-    $('#'+elementid).on('load', function() {
-        this.datepicker();
-    });
+    if (validate_required('username','Username') 
+            && validate_required('password','Password'))
+    {
+        alert("You have logged in !!!");
+    }
+    return false;
+}
+function resetLogin()
+{
+    document.getElementById('password').value = "";
+    document.getElementById('username').value = "";
 }
