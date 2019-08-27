@@ -78,7 +78,10 @@ function checkLogin()
     if (validate_required('username','Username') 
             && validate_required('password','Password'))
     {
-        alert("You have logged in !!!");
+        var params = "username="+document.getElementById('username').value
+                +"&password="+document.getElementById('password').value;
+        
+        ajaxCall('')
     }
     return false;
 }
