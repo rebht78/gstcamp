@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class DBConnection {
 
-    static String url = "jdbc:mysql://localhost/gstcamp";
+    static String url = "jdbc:mysql://localhost:8012/gstcamp";
     static String username = "root";
     static String password = "";
     static Connection con = null;
