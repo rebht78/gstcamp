@@ -6,6 +6,7 @@
 package com.gstcamp.service;
 
 import com.gstcamp.bean.LoginBean;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -13,5 +14,5 @@ import java.util.List;
  * @author aziz
  */
 public interface LoginService {
-    List checkLogin(LoginBean loginBean);
+    List checkLogin(LoginBean loginBean) throws SQLException;
 }
