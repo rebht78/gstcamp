@@ -12,12 +12,17 @@ function ajaxCall(url, data, method, divid)
         // code for old IE browsers
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
+
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById(divid).innerHTML = this.responseText;
         }
     };
     xmlhttp.open(method, url, true);
+    if (method === 'POST')
+    {
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    }
     xmlhttp.send(data);
 }
 function showHome()
@@ -75,13 +80,21 @@ function AddPurchaseLoader()
 }
 function checkLogin()
 {
-    if (validate_required('username','Username') 
-            && validate_required('password','Password'))
+    if (validate_required('username', 'Username')
+            && validate_required('password', 'Password'))
     {
-        var params = "username="+document.getElementById('username').value
-                +"&password="+document.getElementById('password').value;
-        
-        ajaxCall('')
+        var params = "username=" + document.getElementById('username').value
+                + "&password=" + document.getElementById('password').value;
+
+        ajaxCall('login.gst?action=checkLogin', params, 'POST', 'load');
+
+        if (document.getElementById('rownum').value > 0)
+        {
+            alert("Login Successful");
+        } else
+        {
+            alert("Invalid Username/Password");
+        }
     }
     return false;
 }
