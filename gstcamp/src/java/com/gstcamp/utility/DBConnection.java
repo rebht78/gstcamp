@@ -15,15 +15,22 @@ import java.sql.SQLException;
  */
 public class DBConnection {
 
-    static String url = "jdbc:mysql://localhost:8012/gstcamp";
+    static String url = "jdbc:mysql://localhost/gstcamp";
     static String username = "root";
     static String password = "";
-    static Connection con = null;
+    Connection con = null;
 
-    public static Connection getConnection() throws SQLException {
-        if (con == null) {
-            con = DriverManager.getConnection(url, username, password);
+    public Connection getConnection() {
+        System.out.println("in get connection con is "+con);
+        try {
+            if (con == null) {
+                con = DriverManager.getConnection(url, username, password);
+                System.out.println("in connection : " + con);
+            }
+            return con;
+        } catch (SQLException ex) {
+            System.out.println("SQL Exception : " + ex);
+            return null;
         }
-        return con;
     }
 }

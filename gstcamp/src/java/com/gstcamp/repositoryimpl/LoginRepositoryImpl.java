@@ -24,7 +24,7 @@ public class LoginRepositoryImpl implements LoginRepository {
     @Override
     public List checkLogin(LoginBean loginBean) throws SQLException {
         String sql = "select username from login where username = :username and password = :password;";
-        
+        System.out.println("in repository ml");
         return dBUtility.getList(sql, new BeanPropertySqlParameterSource(loginBean));
     }
     

@@ -25,6 +25,7 @@ public class LoginServiceImpl implements LoginService {
     
     @Override
     public List checkLogin(LoginBean loginBean) throws SQLException{
+        System.out.println("In login service");
         return loginRepository.checkLogin(loginBean);
     }
     

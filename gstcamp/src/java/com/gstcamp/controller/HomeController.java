@@ -25,7 +25,7 @@ public class HomeController {
     @Autowired
     HomeService homeService;
 
-    @RequestMapping(method = RequestMethod.POST, params = "action=showHome")
+    @RequestMapping(method = RequestMethod.GET, params = "action=showHome")
     public String getLoginPage(HttpServletRequest request, HttpServletResponse response) {
         return "home/Main";
     }

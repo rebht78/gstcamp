@@ -5,6 +5,7 @@
  */
 function ajaxCall(url, data, method, divid)
 {
+    var xmlhttp = false;
     if (window.XMLHttpRequest) {
         // code for modern browsers
         xmlhttp = new XMLHttpRequest();
@@ -12,18 +13,21 @@ function ajaxCall(url, data, method, divid)
         // code for old IE browsers
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
+    if (xmlhttp) {
+        var obj = document.getElementById(divid);
+        xmlhttp.open(method, url, false);
+        xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xmlhttp.send(data);
+        if (xmlhttp.readyState == 4)
+        {
+            if (xmlhttp.status == 200)
+                obj.innerHTML = xmlhttp.responseText;
+            else
+                obj.innerHTML = "There is some problem, Kindly contact your Admin!";
 
-    xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById(divid).innerHTML = this.responseText;
         }
-    };
-    xmlhttp.open(method, url, true);
-    if (method === 'POST')
-    {
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
     }
-    xmlhttp.send(data);
 }
 function showHome()
 {
@@ -83,17 +87,16 @@ function checkLogin()
     if (validate_required('username', 'Username')
             && validate_required('password', 'Password'))
     {
-        var params = "username=" + document.getElementById('username').value
-                + "&password=" + document.getElementById('password').value;
-
-        ajaxCall('login.gst?action=checkLogin', params, 'POST', 'load');
+        var form = document.getElementById('loginform');
+        var params = getFormData(form);
+        getSynchronousData('login.gst?action=checkLogin', params, 'load');
 
         if (document.getElementById('rownum').value > 0)
         {
-            alert("Login Successful");
+            window.location = "home.gst?action=showHome";
         } else
         {
-            alert("Invalid Username/Password");
+            alert('Invalid Username or Password!');
         }
     }
     return false;

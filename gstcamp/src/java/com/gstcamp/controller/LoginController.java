@@ -22,23 +22,20 @@ import org.springframework.web.servlet.ModelAndView;
  * @author aziz
  */
 @Controller
-@RequestMapping("login.gst")
+@RequestMapping(value = "login.gst")
 public class LoginController {
-    
+
     @Autowired
     LoginService loginService;
-    
+
     @RequestMapping(method = RequestMethod.GET, params = "action=login")
-    public String getLoginPage(HttpServletRequest request, HttpServletResponse response)
-    {
+    public String getLoginPage(HttpServletRequest request, HttpServletResponse response) {
         return "login";
     }
-    
+
     @RequestMapping(method = RequestMethod.POST, params = "action=checkLogin")
-    public ModelAndView checkLogin(HttpServletRequest request, 
-            HttpServletResponse response, LoginBean loginBean) throws SQLException
-    {
-        ModelAndView modelAndView = new ModelAndView("process"); 
+    public ModelAndView checkLoginData(HttpServletRequest request, HttpServletResponse response, LoginBean loginBean) throws SQLException {
+        ModelAndView modelAndView = new ModelAndView("process");
         List list = loginService.checkLogin(loginBean);
         modelAndView.addObject("rownum", list.size());
         return modelAndView;
