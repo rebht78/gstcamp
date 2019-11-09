@@ -106,3 +106,26 @@ function resetLogin()
     document.getElementById('password').value = "";
     document.getElementById('username').value = "";
 }
+function resetClient()
+{
+    document.getElementById('id_gstno').value = "";
+    document.getElementById('id_clietname').value = "";
+    document.getElementById('id_state').value = "";
+    document.getElementById('id_address').value = "";
+    document.getElementById('id_number').value = "";
+}
+function clientOperation()
+{
+    var form = document.getElementById('clientform');
+    var params = getFormData(form);
+
+    getSynchronousData('home.gst?action=insertClient', params, 'load');
+    if (document.getElementById('status').value > 0)
+    {
+        alert('Client details added successfully!');
+    } else
+    {
+        alert('Not able to add Client details');
+    }
+    return false;
+}

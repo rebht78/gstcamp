@@ -13,7 +13,7 @@
                 <div class="panel-title">Add Client</div>
             </div>  
             <div class="panel-body" >
-                <form method="post">
+                <form id="clientform">
                     <div id="div_id_gstno" class="form-group required">
                         <label for="id_gstno" class="control-label col-md-4  requiredField">GST No<span class="asteriskField">*</span> </label>
                         <div class="controls col-md-8 ">
@@ -47,8 +47,8 @@
                     <div class="form-group"> 
                         <div class="aab controls col-md-4 "></div>
                         <div class="controls col-md-8 ">
-                            <input type="submit" name="submitclient" value="Submit" class="btn btn-primary btn btn-info" id="submit-id-addclient" />
-                            <input type="reset" name="resetclient" value="Reset" class="btn btn-danger btn btn-info" id="reset-id-addclient" />
+                            <button type="button" name="submitclient" class="btn btn-primary" onclick="return clientOperation()" id="submit-id-addclient">Add Client</button>
+                            <button type="button" name="resetclient"  class="btn btn-danger" onclick="resetClient()" id="reset-id-addclient">RESET</button>
                         </div>
                     </div> 
 
@@ -128,3 +128,6 @@
         </div>
     </div>
 </c:if>
+<div id="load">
+    
+</div>

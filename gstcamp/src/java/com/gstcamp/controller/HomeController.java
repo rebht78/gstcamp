@@ -5,6 +5,7 @@
  */
 package com.gstcamp.controller;
 
+import com.gstcamp.bean.ClientBean;
 import com.gstcamp.service.HomeService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -86,4 +87,10 @@ public class HomeController {
         ModelAndView modelAndView = new ModelAndView("home/Purchase");
         return modelAndView;
     }
+    @RequestMapping(method = RequestMethod.POST, params = "action=insertClient")
+    public ModelAndView insertClient(HttpServletRequest request, HttpServletResponse response, ClientBean clientBean) {
+        ModelAndView modelAndView = new ModelAndView("home/process");
+        return modelAndView;
+    }
+    
 }
